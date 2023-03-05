@@ -5,9 +5,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Browser {
-    public static WebDriver driver;
-    public static WebDriver Utils(){
+    private WebDriver driver;
 
+    public WebDriver setUp() {
+        WebDriver driver;
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
         return driver;
     }
 

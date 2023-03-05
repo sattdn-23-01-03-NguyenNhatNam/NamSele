@@ -6,31 +6,39 @@ import org.openqa.selenium.WebElement;
 
 public class LoginPage {
     private WebDriver driver;
+    private By tabLogin = By.xpath("//a[contains(@href,'Login')]");
     private By txtEmail = By.xpath("//input[@id='username']");
     private By txtPassword = By.xpath("//input[@id='password']");
-    private By btnLogin = By.xpath("//input[@title='Login']");
+    private By btnLogin = By.xpath("//input[@type='submit']");
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
-    public void enterEmail(String email){
+    public void openLoginPage(){
+        WebElement logintabClick = driver.findElement(tabLogin);
+        logintabClick.click();
+    }
+
+    public void enterEmail(String email) {
         WebElement emailTxtBox = driver.findElement(txtEmail);
         emailTxtBox.sendKeys(email);
     }
-    public void enterPassword(String password){
+
+    public void enterPassword(String password) {
         WebElement passwordTxtBox = driver.findElement(txtPassword);
         passwordTxtBox.sendKeys(password);
     }
-    public void clickLogin(){
+
+    public void clickLogin() {
         WebElement loginClick = driver.findElement(btnLogin);
         loginClick.click();
     }
-//    public DashboardPage login(String email,String password){
-//        enterEmail(email);
-//        enterPassword(password);
-//        clickLogin();
-//        return new DashboardPage(driver);
-//    }
+
+    public void login(String email, String password) {
+        enterEmail(email);
+        enterPassword(password);
+        clickLogin();
+    }
 
 }

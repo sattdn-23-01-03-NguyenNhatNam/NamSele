@@ -1,36 +1,36 @@
 package railway;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import page.BaseSetUp;
 import page.LoginPage;
+import page.RegisterPage;
+import utils.Browser;
 
-public class LoginTest extends BaseSetUp {
+public class LoginTest extends Browser {
     private WebDriver driver;
     public LoginPage logInPage;
 
 
     @BeforeTest
-    public void beforeTest(){
-
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get("http://www.railwayb2.somee.com/");
+    public void beforeTest() {
+        driver = setUp();
+        driver.get("http://railwayb2.somee.com/Account/Login.cshtml");
     }
+
     @Test
-    public void TC(){
+    public void TC() {
+        System.out.println("User can login Railway with valid username and password ");
+        logInPage = new LoginPage(driver);
 
-        System.out.println("User can login Railway with valid username and password");
-
+        logInPage.login("nhatnam@gmail.com", "12345678");
     }
+
     @AfterTest
-    public void afterTest(){
+    public void afterTest() {
         driver.quit();
     }
-
 
 }
