@@ -1,8 +1,6 @@
 package page;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 public class RegisterPage {
 
@@ -14,6 +12,7 @@ public class RegisterPage {
     private By txtConfirmPassword = By.xpath("//input[@id='confirmPassword']");
     private By txtPassport = By.xpath("//input[@id='pid']");
     private By btnRegister = By.xpath("//input[@type='submit' and @value='Register']");
+    private By msgSuccess = By.xpath("//div[@id='content']/p");
 
     public RegisterPage(WebDriver driver) {
         this.driver = driver;
@@ -43,14 +42,28 @@ public class RegisterPage {
         WebElement passportnumberTxtBox = driver.findElement(txtPassport);
         passportnumberTxtBox.sendKeys(passportnumber);
     }
+    public WebElement getMsgSuccess(){
+        WebElement successMessage = driver.findElement(msgSuccess);
+        successMessage.isDisplayed();
+        return successMessage;
+
+    }
 
 
     public void clickRegister() {
         WebElement registerClick = driver.findElement(btnRegister);
         registerClick.click();
     }
+    public void srollPage() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor)driver;
+        Thread.sleep(2000);
+        js.executeScript("window.scrollBy(0,500)");
+    }
+
+
 
     public void register(String email, String password, String confirmpassword, String passportnumber) throws InterruptedException {
+        srollPage();
         enterEmail(email);
         Thread.sleep(2000);
         enterPassword(password);

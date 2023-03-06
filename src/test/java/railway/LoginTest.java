@@ -1,36 +1,34 @@
 package railway;
 
-import org.openqa.selenium.WebDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+import common.constant;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.LoginPage;
-import page.RegisterPage;
-import utils.Browser;
+import utils.Driver;
 
-public class LoginTest extends Browser {
-    private WebDriver driver;
-    public LoginPage logInPage;
-
-
-    @BeforeTest
-    public void beforeTest() {
-        driver = setUp();
-        driver.get("http://railwayb2.somee.com/Account/Login.cshtml");
-    }
+public class LoginTest extends CommonTest {
+    public LoginPage logInPage = new LoginPage();
 
     @Test
-    public void TC() {
+    public void TC01() {
+        String email = "nhatnam@gmai.com";
         System.out.println("User can login Railway with valid username and password ");
-        logInPage = new LoginPage(driver);
+        logInPage.login(email, "12345678");
 
-        logInPage.login("nhatnam@gmail.com", "12345678");
+        String actual = logInPage.getMessageWelcome();
+        String expected = "Welcome "+ email;
+        Assert.assertEquals(actual,expected);
     }
 
-    @AfterTest
-    public void afterTest() {
-        driver.quit();
-    }
+//    @Test
+//    public void TC02(){
+//        System.out.println("");
+//    }
+
+
+
+
+
+
 
 }

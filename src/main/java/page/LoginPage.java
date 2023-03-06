@@ -1,38 +1,44 @@
 package page;
 
+import common.constant;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage {
-    private WebDriver driver;
     private By tabLogin = By.xpath("//a[contains(@href,'Login')]");
     private By txtEmail = By.xpath("//input[@id='username']");
     private By txtPassword = By.xpath("//input[@id='password']");
     private By btnLogin = By.xpath("//input[@type='submit']");
+    private By msgWelcome = By.xpath("//div[@class='account' and contains(normalize-space(),'Welcome ')]");
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
 
     public void openLoginPage(){
-        WebElement logintabClick = driver.findElement(tabLogin);
+        WebElement logintabClick = constant.WEBDRIVER.findElement(tabLogin);
         logintabClick.click();
     }
 
     public void enterEmail(String email) {
-        WebElement emailTxtBox = driver.findElement(txtEmail);
+        WebElement emailTxtBox = constant.WEBDRIVER.findElement(txtEmail);
         emailTxtBox.sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        WebElement passwordTxtBox = driver.findElement(txtPassword);
+        WebElement passwordTxtBox =constant.WEBDRIVER.findElement(txtPassword);
         passwordTxtBox.sendKeys(password);
     }
 
     public void clickLogin() {
-        WebElement loginClick = driver.findElement(btnLogin);
+        WebElement loginClick = constant.WEBDRIVER.findElement(btnLogin);
         loginClick.click();
+    }
+
+    public WebElement messageWelcome(){
+        WebElement welcomeMessage = constant.WEBDRIVER.findElement(msgWelcome);
+        return welcomeMessage;
+    }
+    public String getMessageWelcome(){
+        return messageWelcome().getText();
     }
 
     public void login(String email, String password) {

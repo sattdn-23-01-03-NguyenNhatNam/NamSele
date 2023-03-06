@@ -1,17 +1,15 @@
 package railway;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import page.LoginPage;
 import page.RegisterPage;
-import utils.Browser;
+import utils.Driver;
 
-public class RegisterTest extends Browser {
+public class RegisterTest extends Driver {
     private WebDriver driver;
     public RegisterPage registerPage;
     public LoginPage loginPage;
@@ -25,15 +23,21 @@ public class RegisterTest extends Browser {
     @Test
     public void TC() throws InterruptedException {
         System.out.println("User can login Railway with registered username and password");
-        String email = "nhatnam@gmail.com";
+        String email = "nhatnam123@gmail.com";
         String password = "12345678";
         String confirmpassword = password;
         String passportnumber = "123123123";
 
+
+
         registerPage = new RegisterPage(driver);
         registerPage.register(email, password, confirmpassword, passportnumber);
 
-        loginPage = new LoginPage(driver);
+        String actualMsg = registerPage.getMsgSuccess().getText();
+        Assert.assertEquals(actualMsg,"You're here");
+
+
+        loginPage = new LoginPage();
         loginPage.openLoginPage();
         loginPage.login(email, password);
 

@@ -5,16 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f1b170df-3535-4323-89b1-2be246a53e47" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/page/DashboardPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/page/RegisterPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/railway/CommonTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/railway/RegisterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/common/constant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/page/BaseSetUp.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/page/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/page/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Browser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Browser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/page/RegisterPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/page/RegisterPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/utils/Browser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Driver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/railway/CommonTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/railway/CommonTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/railway/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/railway/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/railway/RegisterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/railway/RegisterTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/TestRun.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/TestRun.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,13 +54,33 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/TechCare/IdeaProjects/NamSele/pom.xml",
+    "last_opened_file_path": "C:/Users/SATTDN23.01.03/IdeaProjects/RaiwayDemo/src/test/resources/TestRun.xml",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="TestRun" type="TestNG">
+      <module name="RailwayDemo" />
+      <shortenClasspath name="NONE" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/src/test/resources/TestRun.xml" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="SUITE" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,5 +91,15 @@
       <updated>1677851511663</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="10" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
