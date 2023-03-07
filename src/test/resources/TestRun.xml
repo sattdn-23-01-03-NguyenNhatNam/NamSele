@@ -3,7 +3,12 @@
 <suite name="Practice">
     <test name="Test1">
         <classes>
-            <class name="railway.LoginTest"/>
+            <class name="railway.RegisterTest">
+                <methods>
+                    <include name="TC"></include>
+                </methods>
+            </class>
+           
         </classes>
     </test><!-- Test -->
 <!--    <test name="Test2">-->
