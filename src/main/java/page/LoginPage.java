@@ -1,8 +1,7 @@
 package page;
 
-import common.constant;
+import common.Constant;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage {
@@ -12,33 +11,35 @@ public class LoginPage {
     private By btnLogin = By.xpath("//input[@type='submit']");
     private By msgWelcome = By.xpath("//div[@class='account' and contains(normalize-space(),'Welcome ')]");
 
+    private By msgErrorLoginForm = By.xpath("//p[@class='message error LoginForm']");
+    private By msgErrorValidField = By.xpath("//label[@class='validation-error' and @for ='username']");
 
-    public void openLoginPage(){
-        WebElement logintabClick = constant.WEBDRIVER.findElement(tabLogin);
-        logintabClick.click();
-    }
 
     public void enterEmail(String email) {
-        WebElement emailTxtBox = constant.WEBDRIVER.findElement(txtEmail);
+        WebElement emailTxtBox = Constant.WEBDRIVER.findElement(txtEmail);
         emailTxtBox.sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        WebElement passwordTxtBox =constant.WEBDRIVER.findElement(txtPassword);
+        WebElement passwordTxtBox = Constant.WEBDRIVER.findElement(txtPassword);
         passwordTxtBox.sendKeys(password);
     }
 
     public void clickLogin() {
-        WebElement loginClick = constant.WEBDRIVER.findElement(btnLogin);
+        WebElement loginClick = Constant.WEBDRIVER.findElement(btnLogin);
         loginClick.click();
     }
 
-    public WebElement messageWelcome(){
-        WebElement welcomeMessage = constant.WEBDRIVER.findElement(msgWelcome);
-        return welcomeMessage;
-    }
     public String getMessageWelcome(){
-        return messageWelcome().getText();
+        return Constant.WEBDRIVER.findElement(msgWelcome).getText();
+    }
+
+    public String getMessageErrorLogin(){
+        return Constant.WEBDRIVER.findElement(msgErrorLoginForm).getText();
+    }
+
+    public String getMessageErrorValid(){
+        return Constant.WEBDRIVER.findElement(msgErrorValidField).getText();
     }
 
     public void login(String email, String password) {
