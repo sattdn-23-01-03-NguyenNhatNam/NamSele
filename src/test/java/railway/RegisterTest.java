@@ -12,9 +12,9 @@ public class RegisterTest extends BaseTest {
     public HomePage homePage = new HomePage();
 
     @Test
-    public void TC() throws InterruptedException {
+    public void TC00() throws InterruptedException {
         System.out.println("User can login Railway with registered username and password");
-        String email = "nhatnam4@gmail.com";
+        String email = "nhatnam6@gmail.com";
         String password = "12345678";
         String confirmPassword = password;
         String passportNumber = "123123123";
@@ -22,7 +22,7 @@ public class RegisterTest extends BaseTest {
         homePage.clickOnTabRegister();
 
         registerPage.register(email, password, confirmPassword, passportNumber);
-        String actualMsg = registerPage.getMsgSuccess().getText();
+        String actualMsg = registerPage.showMsgSuccess();
         Assert.assertEquals(actualMsg,"You're here","Register failure, Account already exists");
 
         homePage.clickOnTabLogin();

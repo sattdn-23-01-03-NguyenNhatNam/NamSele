@@ -15,37 +15,49 @@ public class RegisterPage {
     private By msgSuccess = By.xpath("//div[@id='content']/p");
 
 
-    public void enterEmail(String email) {
-        WebElement emailTxtBox = Constant.WEBDRIVER.findElement(txtEmail);
-        emailTxtBox.sendKeys(email);
+    public WebElement getEmailField() {
+        return Constant.WEBDRIVER.findElement(txtEmail);
     }
 
+    public void enterEmail(String email){
+         this.getEmailField().sendKeys(email);
+    }
+
+    public WebElement getPasswordField(){
+        return Constant.WEBDRIVER.findElement(txtPassword);
+    }
     public void enterPassword(String password) {
-        WebElement passwordTxtBox = Constant.WEBDRIVER.findElement(txtPassword);
-        passwordTxtBox.sendKeys(password);
+        this.getPasswordField().sendKeys(password);
     }
 
+    public WebElement getConfirmPWField(){
+        return Constant.WEBDRIVER.findElement(txtConfirmPassword);
+    }
     public void enterConfirmPassword(String confirmpassword) {
-        WebElement confirmpasswordTxtBox = Constant.WEBDRIVER.findElement(txtConfirmPassword);
-        confirmpasswordTxtBox.sendKeys(confirmpassword);
+       this.getConfirmPWField().sendKeys(confirmpassword);
     }
 
+    public WebElement getPassportNumberField(){
+        return Constant.WEBDRIVER.findElement(txtPassport);
+    }
     public void enterPassportnumber(String passportnumber) {
-        WebElement passportnumberTxtBox = Constant.WEBDRIVER.findElement(txtPassport);
-        passportnumberTxtBox.sendKeys(passportnumber);
-    }
-    public WebElement getMsgSuccess(){
-        WebElement successMessage = Constant.WEBDRIVER.findElement(msgSuccess);
-        successMessage.isDisplayed();
-        return successMessage;
-
+       getPassportNumberField().sendKeys(passportnumber);
     }
 
+    public WebElement getMsgSuccess() {
+        return Constant.WEBDRIVER.findElement(msgSuccess);
+    }
+    public String showMsgSuccess(){
+        return getMsgSuccess().getText();
+    }
+    public WebElement getRegisterBtn(){
+        return Constant.WEBDRIVER.findElement(btnRegister);
+    }
 
     public void clickRegister() {
-        WebElement registerClick = Constant.WEBDRIVER.findElement(btnRegister);
-        registerClick.click();
+        getRegisterBtn().click();
     }
+
     public void srollPage() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
         Thread.sleep(2000);
@@ -61,8 +73,6 @@ public class RegisterPage {
         clickRegister();
 
     }
-
-
 
 
 }

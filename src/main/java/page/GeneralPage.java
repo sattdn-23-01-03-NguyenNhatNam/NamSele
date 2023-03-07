@@ -7,21 +7,31 @@ import org.openqa.selenium.WebElement;
 
 public class GeneralPage {
     private WebDriver driver;
-    private By tabLogin = By.xpath("//a[contains(@href,'Login')]");
+    public By tabLogin = By.xpath("//a[contains(@href,'Login')]");
     private By tabRegister = By.xpath("//a[contains(@href,'Register')]");
+    private By tabBookTicket = By.xpath("//a[contains(@href,'BookTicketPage')]");
 
-    public WebElement getTabRegister(){
+    public WebElement getTabRegister() {
         return Constant.WEBDRIVER.findElement(tabRegister);
     }
-    public WebElement getTabLogin(){
+
+    public WebElement getTabLogin() {
         return Constant.WEBDRIVER.findElement(tabLogin);
     }
 
+    public WebElement getTabBookTicket() {
+        return Constant.WEBDRIVER.findElement(tabBookTicket);
+    }
 
-    public void clickOnTabRegister(){
+    public void clickOnTabRegister() {
         this.getTabRegister().click();
     }
-    public void clickOnTabLogin(){
+
+    public void clickOnTabLogin() {
         this.getTabLogin().click();
+    }
+
+    public void clickOnTabBookTicket() {
+        this.getTabBookTicket().click();
     }
 }

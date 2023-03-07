@@ -10,6 +10,7 @@ public class Driver {
         WebDriver driver;
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         return driver;
     }
 

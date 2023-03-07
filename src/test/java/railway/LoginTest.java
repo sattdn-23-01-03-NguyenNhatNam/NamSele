@@ -1,5 +1,6 @@
 package railway;
 
+import common.Constant;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import page.HomePage;
@@ -17,7 +18,7 @@ public class LoginTest extends BaseTest {
         String email = "nhatnam@gmai.com";
         logInPage.login(email, "12345678");
 
-        String actual = logInPage.getMessageWelcome();
+        String actual = logInPage.showWelcomeMessage();
         String expected = "Welcome "+ email;
         Assert.assertEquals(actual,expected);
     }
@@ -29,8 +30,8 @@ public class LoginTest extends BaseTest {
         homePage.clickOnTabLogin();
         logInPage.login("","123456789");
 
-        Assert.assertEquals(logInPage.getMessageErrorLogin(),"There was a problem with your login and/or errors exist in your form.","The error doesn't display properly");
-        Assert.assertEquals(logInPage.getMessageErrorValid(),"You must specify a username.","The error doesn't display properly");
+        Assert.assertEquals(logInPage.showErrorLoginMessage(),"There was a problem with your login and/or errors exist in your form.","The error doesn't display properly");
+        Assert.assertEquals(logInPage.showErrorValidMessage(),"You must specify a username.","The error doesn't display properly");
     }
 
     @Test
@@ -40,14 +41,18 @@ public class LoginTest extends BaseTest {
         homePage.clickOnTabLogin();
         logInPage.login("nhatnam@gmai.com","1231223123");
 
-        Assert.assertEquals(logInPage.getMessageErrorLogin(),"There was a problem with your login and/or errors exist in your form.","The error doesn't display properly");
+        Assert.assertEquals(logInPage.showErrorLoginMessage(),"There was a problem with your login and/or errors exist in your form.","The error doesn't display properly");
 
     }
 
-
-
-
-
+    @Test
+    public void TC04(){
+        System.out.println("Login page displays when un-logged User clicks on \"Book ticket\" tab");
+        homePage.open();
+        homePage.clickOnTabBookTicket();
+        String strURL = Constant.WEBDRIVER.getCurrentUrl();
+        Assert.assertEquals(strURL,homePage.tabLogin);
+    }
 
 
 }
