@@ -39,6 +39,8 @@ public class RegisterTest extends BaseTest {
         Assert.assertEquals(actualMsg,"Thank you for registering your account","Register failure, Account already exists");
     }
 
+
+
     @Test
     public void TC10() throws InterruptedException {
         homePage.open();
@@ -51,15 +53,17 @@ public class RegisterTest extends BaseTest {
 
         Assert.assertEquals(registerPage.showErrorConfirmPwMsg(),"The two passwords do not match");
     }
-//    @Test
-//    public void TC11() throws InterruptedException {
-//        homePage.open();
-//        homePage.clickOnTabRegister();
-//        registerPage.register("nam7@gmail.com","","123456789","");
-//        Assert.assertEquals(registerPage.showErrorRegisterMsg(),"There're errors in the form. Please correct the errors and try again.","The error message doesn't display properly");
-//        Assert.assertEquals();
-//
-//    }
+    @Test
+    public void TC11() throws InterruptedException {
+        homePage.open();
+        homePage.clickOnTabRegister();
+        registerPage.register("nam7@gmail.com","","123456789","");
+        Assert.assertEquals(registerPage.showErrorRegisterMsg(),"There're errors in the form. Please correct the errors and try again.","The error message doesn't display properly");
+        Assert.assertEquals(registerPage.showErrorInValidPwMsg(),"Invalid password length.");
+        Assert.assertEquals(registerPage.showErrorConfirmPwMsg(),"The two passwords do not match");
+        Assert.assertEquals(registerPage.showErrorInValidPIDMsg(),"Invalid ID length.");
+
+    }
 
 
 }

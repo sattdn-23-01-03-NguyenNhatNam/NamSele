@@ -3,9 +3,9 @@
 <suite name="Practice">
     <test name="Test1">
         <classes>
-            <class name="railway.LoginTest">
+            <class name="railway.ChangePwTest">
                 <methods>
-                    <include name="TC02"></include>
+                    <include name="TC09"></include>
                 </methods>
             </class>
            

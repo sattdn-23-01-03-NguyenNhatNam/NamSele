@@ -16,8 +16,8 @@ public class RegisterPage {
     private By msgSuccess = By.xpath("//div[@id='content']/p");
     private By msgErrorRegister = By.xpath("//p[@class='message error']");
     private By msgErrorConfirmPw = By.xpath("//label[@class='validation-error' and @for='confirmPassword']");
-
-    // private By msgErrorInvalidPw = By.xpath("//label[@class='validation-error' and @for='password']");
+    private By msgErrorInvalidPw = By.xpath("//label[@class='validation-error' and @for='password']");
+    private By msgErrorInvalidPID = By.xpath("Invalid ID length.");
     public WebElement getEmailField() {
         return Constant.WEBDRIVER.findElement(txtEmail);
     }
@@ -49,17 +49,24 @@ public class RegisterPage {
     public WebElement getErrorConfirmPwMsg() {
         return Constant.WEBDRIVER.findElement(msgErrorConfirmPw);
     }
+    public WebElement getErrorInvalidPwMsg() {
+        return Constant.WEBDRIVER.findElement(msgErrorInvalidPw);
+    }
+    public WebElement getErrorInvalidPIDMsg(){
+        return Constant.WEBDRIVER.findElement(msgErrorInvalidPID);
+    }
+
 
     public void enterEmail(String email) {
-        this.getEmailField().sendKeys(email);
+        getEmailField().sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        this.getPasswordField().sendKeys(password);
+        getPasswordField().sendKeys(password);
     }
 
     public void enterConfirmPassword(String confirmpassword) {
-        this.getConfirmPWField().sendKeys(confirmpassword);
+        getConfirmPWField().sendKeys(confirmpassword);
     }
 
     public void enterPassportnumber(String passportnumber) {
@@ -76,6 +83,12 @@ public class RegisterPage {
 
     public String showErrorConfirmPwMsg() {
         return getErrorConfirmPwMsg().getText();
+    }
+    public String showErrorInValidPwMsg() {
+        return getErrorInvalidPwMsg().getText();
+    }
+    public String showErrorInValidPIDMsg() {
+        return getErrorInvalidPIDMsg().getText();
     }
 
     public void clickRegister() {
