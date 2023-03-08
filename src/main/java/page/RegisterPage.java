@@ -2,10 +2,11 @@ package page;
 
 import common.Constant;
 import org.openqa.selenium.*;
+import utils.Utilities;
 
 public class RegisterPage {
 
-    public GeneralPage dashboardPage;
+    public Utilities utilities = new Utilities();
     private By tabRegister = By.xpath("//a[contains(@href,'Register')]");
     private By txtEmail = By.xpath("//input[@id='email']");
     private By txtPassword = By.xpath("//input[@id='password']");
@@ -13,59 +14,76 @@ public class RegisterPage {
     private By txtPassport = By.xpath("//input[@id='pid']");
     private By btnRegister = By.xpath("//input[@type='submit' and @value='Register']");
     private By msgSuccess = By.xpath("//div[@id='content']/p");
+    private By msgErrorRegister = By.xpath("//p[@class='message error']");
+    private By msgErrorConfirmPw = By.xpath("//label[@class='validation-error' and @for='confirmPassword']");
 
-
+    // private By msgErrorInvalidPw = By.xpath("//label[@class='validation-error' and @for='password']");
     public WebElement getEmailField() {
         return Constant.WEBDRIVER.findElement(txtEmail);
     }
 
-    public void enterEmail(String email){
-         this.getEmailField().sendKeys(email);
-    }
-
-    public WebElement getPasswordField(){
+    public WebElement getPasswordField() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
+
+    public WebElement getConfirmPWField() {
+        return Constant.WEBDRIVER.findElement(txtConfirmPassword);
+    }
+
+    public WebElement getPassportNumberField() {
+        return Constant.WEBDRIVER.findElement(txtPassport);
+    }
+
+    public WebElement getSuccessMsg() {
+        return Constant.WEBDRIVER.findElement(msgSuccess);
+    }
+
+    public WebElement getRegisterBtn() {
+        return Constant.WEBDRIVER.findElement(btnRegister);
+    }
+
+    public WebElement getErrorRegisterMsg() {
+        return Constant.WEBDRIVER.findElement(msgErrorRegister);
+    }
+
+    public WebElement getErrorConfirmPwMsg() {
+        return Constant.WEBDRIVER.findElement(msgErrorConfirmPw);
+    }
+
+    public void enterEmail(String email) {
+        this.getEmailField().sendKeys(email);
+    }
+
     public void enterPassword(String password) {
         this.getPasswordField().sendKeys(password);
     }
 
-    public WebElement getConfirmPWField(){
-        return Constant.WEBDRIVER.findElement(txtConfirmPassword);
-    }
     public void enterConfirmPassword(String confirmpassword) {
-       this.getConfirmPWField().sendKeys(confirmpassword);
+        this.getConfirmPWField().sendKeys(confirmpassword);
     }
 
-    public WebElement getPassportNumberField(){
-        return Constant.WEBDRIVER.findElement(txtPassport);
-    }
     public void enterPassportnumber(String passportnumber) {
-       getPassportNumberField().sendKeys(passportnumber);
+        getPassportNumberField().sendKeys(passportnumber);
     }
 
-    public WebElement getMsgSuccess() {
-        return Constant.WEBDRIVER.findElement(msgSuccess);
+    public String showSuccessMsg() {
+        return getSuccessMsg().getText();
     }
-    public String showMsgSuccess(){
-        return getMsgSuccess().getText();
+
+    public String showErrorRegisterMsg() {
+        return getErrorRegisterMsg().getText();
     }
-    public WebElement getRegisterBtn(){
-        return Constant.WEBDRIVER.findElement(btnRegister);
+
+    public String showErrorConfirmPwMsg() {
+        return getErrorConfirmPwMsg().getText();
     }
 
     public void clickRegister() {
         getRegisterBtn().click();
     }
 
-    public void srollPage() throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
-        Thread.sleep(2000);
-        js.executeScript("window.scrollBy(0,500)");
-    }
-
     public void register(String email, String password, String confirmPassword, String passportNumber) throws InterruptedException {
-        srollPage();
+        utilities.srollPage();
         enterEmail(email);
         enterPassword(password);
         enterConfirmPassword(confirmPassword);
@@ -73,6 +91,5 @@ public class RegisterPage {
         clickRegister();
 
     }
-
-
 }
+

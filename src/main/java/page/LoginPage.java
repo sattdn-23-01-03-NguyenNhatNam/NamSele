@@ -16,45 +16,55 @@ public class LoginPage {
     public WebElement getEmailField() {
         return Constant.WEBDRIVER.findElement(txtEmail);
     }
-    public void enterEmail(String email){
+
+    public void enterEmail(String email) {
         getEmailField().sendKeys(email);
     }
 
-    public WebElement getPasswordField(){
+    public WebElement getPasswordField() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
 
     public void enterPassword(String password) {
-       getPasswordField().sendKeys(password);
+        getPasswordField().sendKeys(password);
     }
-    public WebElement getBtnLogin(){
+
+    public WebElement getBtnLogin() {
         return Constant.WEBDRIVER.findElement(btnLogin);
     }
 
     public void clickLogin() {
-       getBtnLogin().click();
+        getBtnLogin().click();
     }
 
-    public WebElement getWelcomeMessage(){
+    public WebElement getWelcomeMessage() {
         return Constant.WEBDRIVER.findElement(msgWelcome);
     }
-    public String showWelcomeMessage(){
+
+    public String showWelcomeMessage() {
         return getWelcomeMessage().getText();
     }
 
-    public WebElement getErrorLoginMessage(){
+    public WebElement getErrorLoginMessage() {
         return Constant.WEBDRIVER.findElement(msgErrorLoginForm);
     }
-    public String showErrorLoginMessage(){
+
+    public String showErrorLoginMessage() {
         return getErrorLoginMessage().getText();
     }
 
-    public WebElement getErrorSpecifyMessage(){
+    public WebElement getErrorSpecifyMessage() {
         return Constant.WEBDRIVER.findElement(msgErrorValidField);
     }
 
-    public String showErrorValidMessage(){
+    public String showErrorValidMessage() {
         return getErrorSpecifyMessage().getText();
+    }
+
+    public void repeatLogin(int n, String email, String password) {
+        for (int i = 0; i < n; i++) {
+            login(email, password);
+        }
     }
 
     public void login(String email, String password) {
@@ -64,3 +74,4 @@ public class LoginPage {
     }
 
 }
+
