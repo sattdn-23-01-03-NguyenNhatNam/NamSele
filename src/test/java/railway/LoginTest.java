@@ -84,13 +84,14 @@ public class LoginTest extends BaseTest {
         generalPage.getTabMyTicket().isDisplayed();
         homePage.clickOnTabChangPassword();
     }
+
     @Test
-    public void TC08(){
+    public void TC08() {
         System.out.println("User can't login with an account hasn't been activated");
         homePage.open();
         homePage.clickOnTabLogin();
-        logInPage.login("namdayne@gmail.com","123123123");
-        Assert.assertEquals(logInPage.showErrorLoginMessage(),"Invalid username or password. Please try again.");
+        logInPage.login("namdayne@gmail.com", "123123123");
+        Assert.assertEquals(logInPage.showErrorLoginMessage(), "Invalid username or password. Please try again.");
     }
 
 

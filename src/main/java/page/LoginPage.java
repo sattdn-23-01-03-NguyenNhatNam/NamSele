@@ -18,7 +18,7 @@ public class LoginPage {
     }
 
     public void enterEmail(String email) {
-        getEmailField().sendKeys(email);
+        this.getEmailField().sendKeys(email);
     }
 
     public WebElement getPasswordField() {
@@ -26,7 +26,7 @@ public class LoginPage {
     }
 
     public void enterPassword(String password) {
-        getPasswordField().sendKeys(password);
+        this.getPasswordField().sendKeys(password);
     }
 
     public WebElement getBtnLogin() {
@@ -63,13 +63,13 @@ public class LoginPage {
 
     public void repeatLogin(int n, String email, String password) {
         for (int i = 0; i < n; i++) {
-            login(email, password);
+            this.login(email, password);
         }
     }
 
     public void login(String email, String password) {
-        enterEmail(email);
-        enterPassword(password);
+        this.enterEmail(email);
+        this.enterPassword(password);
         clickLogin();
     }
 
