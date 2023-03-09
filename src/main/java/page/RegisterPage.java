@@ -100,8 +100,12 @@ public class RegisterPage {
         getRegisterBtn().click();
     }
 
-    public void register(String email, String password, String confirmPassword, String passportNumber) throws InterruptedException {
-        utilities.srollPage();
+    public void register(String email, String password, String confirmPassword, String passportNumber) {
+        try {
+            utilities.srollPage();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         this.enterEmail(email);
         this.enterPassword(password);
         this.enterConfirmPassword(confirmPassword);

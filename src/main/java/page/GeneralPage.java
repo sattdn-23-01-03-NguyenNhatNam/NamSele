@@ -1,6 +1,7 @@
 package page;
 
 import common.Constant;
+import common.Enums;
 import org.openqa.selenium.By;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,6 @@ public class GeneralPage {
     private String Logout = "Logout";
     private String MyTicket = "ManageTicket";
     private String ChangePassWord = "ChangePassword";
-
     private String tabDynamicLocator = "//a[contains(@href, '<tabname>')]";
 
     public By getAnotherPage(String tabName) {
@@ -65,7 +65,8 @@ public class GeneralPage {
     public void clickOnTabChangPassword() {
         this.getChangePassword().click();
     }
-    public void clickOnTagMyTicket(){
+
+    public void clickOnTagMyTicket() {
         this.getTabMyTicket().click();
     }
 }
