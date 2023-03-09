@@ -23,7 +23,7 @@ public class RegisterTest extends BaseTest {
 
         registerPage.register(email, password, confirmPassword, passportNumber);
         String actualMsg = registerPage.showSuccessMsg();
-        Assert.assertEquals(actualMsg,"You're here","Register failure, Account already exists");
+        Assert.assertEquals(actualMsg, "You're here", "Register failure, Account already exists");
 
         homePage.clickOnTabLogin();
         loginPage.login(email, password);
@@ -34,11 +34,10 @@ public class RegisterTest extends BaseTest {
     public void TC07() throws InterruptedException {
         homePage.open();
         homePage.clickOnTabRegister();
-        registerPage.register("nam3@gmail.com","123456789","123456789","123123123");
+        registerPage.register("nam3@gmail.com", "123456789", "123456789", "123123123");
         String actualMsg = registerPage.showSuccessMsg();
-        Assert.assertEquals(actualMsg,"Thank you for registering your account","Register failure, Account already exists");
+        Assert.assertEquals(actualMsg, "Thank you for registering your account", "Register failure, Account already exists");
     }
-
 
 
     @Test
@@ -47,21 +46,22 @@ public class RegisterTest extends BaseTest {
         homePage.clickOnTabRegister();
         String password = "namquadeptrai";
         String confirmPassword = "namratdeptrai";
-        registerPage.register("nam6@gmail.com",password,confirmPassword,"123123123");
+        registerPage.register("nam6@gmail.com", password, confirmPassword, "123123123");
 
-        Assert.assertEquals(registerPage.showErrorRegisterMsg(),"There're errors in the form. Please correct the errors and try again.","The error message doesn't display properly");
+        Assert.assertEquals(registerPage.showErrorRegisterMsg(), "There're errors in the form. Please correct the errors and try again.", "The error message doesn't display properly");
 
-        Assert.assertEquals(registerPage.showErrorConfirmPwMsg(),"The two passwords do not match");
+        Assert.assertEquals(registerPage.showErrorConfirmPwMsg(), "The two passwords do not match");
     }
+
     @Test
     public void TC11() throws InterruptedException {
         homePage.open();
         homePage.clickOnTabRegister();
-        registerPage.register("nam7@gmail.com","","123456789","");
-        Assert.assertEquals(registerPage.showErrorRegisterMsg(),"There're errors in the form. Please correct the errors and try again.","The error message doesn't display properly");
-        Assert.assertEquals(registerPage.showErrorInValidPwMsg(),"Invalid password length.");
-        Assert.assertEquals(registerPage.showErrorConfirmPwMsg(),"The two passwords do not match");
-        Assert.assertEquals(registerPage.showErrorInValidPIDMsg(),"Invalid ID length.");
+        registerPage.register("nam7@gmail.com", "", "123456789", "");
+        Assert.assertEquals(registerPage.showErrorRegisterMsg(), "There're errors in the form. Please correct the errors and try again.", "The error message doesn't display properly");
+        Assert.assertEquals(registerPage.showErrorInValidPwMsg(), "Invalid password length.");
+        Assert.assertEquals(registerPage.showErrorConfirmPwMsg(), "The two passwords do not match");
+        Assert.assertEquals(registerPage.showErrorInValidPIDMsg(), "Invalid ID length.");
 
     }
 

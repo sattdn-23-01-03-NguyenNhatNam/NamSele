@@ -18,6 +18,7 @@ public class RegisterPage {
     private By msgErrorConfirmPw = By.xpath("//label[@class='validation-error' and @for='confirmPassword']");
     private By msgErrorInvalidPw = By.xpath("//label[@class='validation-error' and @for='password']");
     private By msgErrorInvalidPID = By.xpath("Invalid ID length.");
+
     public WebElement getEmailField() {
         return Constant.WEBDRIVER.findElement(txtEmail);
     }
@@ -49,28 +50,30 @@ public class RegisterPage {
     public WebElement getErrorConfirmPwMsg() {
         return Constant.WEBDRIVER.findElement(msgErrorConfirmPw);
     }
+
     public WebElement getErrorInvalidPwMsg() {
         return Constant.WEBDRIVER.findElement(msgErrorInvalidPw);
     }
-    public WebElement getErrorInvalidPIDMsg(){
+
+    public WebElement getErrorInvalidPIDMsg() {
         return Constant.WEBDRIVER.findElement(msgErrorInvalidPID);
     }
 
 
     public void enterEmail(String email) {
-        getEmailField().sendKeys(email);
+        this.getEmailField().sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        getPasswordField().sendKeys(password);
+        this.getPasswordField().sendKeys(password);
     }
 
     public void enterConfirmPassword(String confirmpassword) {
-        getConfirmPWField().sendKeys(confirmpassword);
+        this.getConfirmPWField().sendKeys(confirmpassword);
     }
 
     public void enterPassportnumber(String passportnumber) {
-        getPassportNumberField().sendKeys(passportnumber);
+        this.getPassportNumberField().sendKeys(passportnumber);
     }
 
     public String showSuccessMsg() {
@@ -84,9 +87,11 @@ public class RegisterPage {
     public String showErrorConfirmPwMsg() {
         return getErrorConfirmPwMsg().getText();
     }
+
     public String showErrorInValidPwMsg() {
         return getErrorInvalidPwMsg().getText();
     }
+
     public String showErrorInValidPIDMsg() {
         return getErrorInvalidPIDMsg().getText();
     }
@@ -97,10 +102,10 @@ public class RegisterPage {
 
     public void register(String email, String password, String confirmPassword, String passportNumber) throws InterruptedException {
         utilities.srollPage();
-        enterEmail(email);
-        enterPassword(password);
-        enterConfirmPassword(confirmPassword);
-        enterPassportnumber(passportNumber);
+        this.enterEmail(email);
+        this.enterPassword(password);
+        this.enterConfirmPassword(confirmPassword);
+        this.enterPassportnumber(passportNumber);
         clickRegister();
 
     }
