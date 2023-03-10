@@ -11,13 +11,13 @@ public enum Enums {
     CurrentPassword("currentPassword"),
     NewPassword("newPassword"),
     ConfirmPassword("confirmPassword");
-    private String Name;
+    private String Value;
 
-    Enums(String Name) {
-        this.Name = Name;
+    Enums(String Value) {
+        this.Value = Value;
     }
 
-    public String getName() {
-        return Name;
+    public String getValue() {
+        return Value;
     }
 }

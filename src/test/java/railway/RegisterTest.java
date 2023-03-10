@@ -6,6 +6,7 @@ import org.testng.asserts.SoftAssert;
 import page.HomePage;
 import page.LoginPage;
 import page.RegisterPage;
+import utils.Utilities;
 
 public class RegisterTest extends BaseTest {
     private RegisterPage registerPage = new RegisterPage();
@@ -15,7 +16,7 @@ public class RegisterTest extends BaseTest {
 
     @Test(description = "User can login Railway with registered username and password")
     public void TC00() {
-        String email = "nhatnam7@gmail.com";
+        String email = "nhatnam"+ Utilities.randomNumber(20,100)+"@gmail.com";
         String password = "12345678";
         String confirmPassword = password;
         String passportNumber = "123123123";
@@ -24,7 +25,7 @@ public class RegisterTest extends BaseTest {
         registerPage.register(email, password, confirmPassword, passportNumber);
         String actualMsg = registerPage.getTextMsgSuccess();
 
-        Assert.assertEquals(actualMsg, "You're here", "Register failure, Account already exists");
+        Assert.assertEquals(actualMsg, "Thank you for registering your account", "Register failure, Account already exists");
 
         homePage.clickOnTabLogin();
         loginPage.login(email, password);
@@ -34,7 +35,7 @@ public class RegisterTest extends BaseTest {
     public void TC07() {
         homePage.open();
         homePage.clickOnTabRegister();
-        registerPage.register("nam3@gmail.com", "123456789", "123456789", "123123123");
+        registerPage.register("nam"+ Utilities.randomNumber(10,1000) +"@gmail.com", "123456789", "123456789", "123123123");
         String actualMsg = registerPage.getTextMsgSuccess();
 
         Assert.assertEquals(actualMsg, "Thank you for registering your account", "Register failure, Account already exists");

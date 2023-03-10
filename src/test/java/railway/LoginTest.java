@@ -81,6 +81,8 @@ public class LoginTest extends BaseTest {
         homePage.clickOnTabChangPassword();
 
         Assert.assertTrue(changePasswordPage.getLblTitleChangePassword().isDisplayed());
+
+        homePage.clickOnTabLogout();
     }
 
     @Test(description = "User can't login with an account hasn't been activated")

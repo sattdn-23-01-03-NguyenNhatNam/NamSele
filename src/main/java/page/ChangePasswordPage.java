@@ -16,15 +16,15 @@ public class ChangePasswordPage {
     }
 
     public WebElement getTxtCurrentPassword() {
-        return Constant.WEBDRIVER.findElement(getTxtDynamicLocator(Enums.CurrentPassword.getName()));
+        return Constant.WEBDRIVER.findElement(getTxtDynamicLocator(Enums.CurrentPassword.getValue()));
     }
 
     public WebElement getTxtNewPassword() {
-        return Constant.WEBDRIVER.findElement(getTxtDynamicLocator(Enums.NewPassword.getName()));
+        return Constant.WEBDRIVER.findElement(getTxtDynamicLocator(Enums.NewPassword.getValue()));
     }
 
     public WebElement getTxtConfirmPassword() {
-        return Constant.WEBDRIVER.findElement(getTxtDynamicLocator(Enums.ConfirmPassword.getName()));
+        return Constant.WEBDRIVER.findElement(getTxtDynamicLocator(Enums.ConfirmPassword.getValue()));
     }
 
     public WebElement getBtnChangePassword() {

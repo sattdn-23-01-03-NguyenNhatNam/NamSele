@@ -4,37 +4,36 @@ import common.Constant;
 import common.Enums;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import utils.Driver;
 
 public class GeneralPage {
     private String tabDynamicLocator = "//a[contains(@href, '%s')]";
 
-    private By getTabGeneral(String tabName) {
+    public By getTabGeneral(String tabName) {
         return By.xpath(String.format(tabDynamicLocator, tabName));
     }
 
     public WebElement getTabLogin() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.Login.getName()));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.Login.getValue()));
     }
 
     public WebElement getTabRegister() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.Register.getName()));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.Register.getValue()));
     }
 
     public WebElement getTabBookTicket() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.BookTicketPage.getName()));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.BookTicketPage.getValue()));
     }
 
     public WebElement getTabLogout() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.Logout.getName()));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.Logout.getValue()));
     }
 
     public WebElement getTabMyTicket() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.ManageTicket.getName()));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.ManageTicket.getValue()));
     }
 
     public WebElement getChangePassword() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.ChangePassword.getName()));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.ChangePassword.getValue()));
     }
 
     public void clickOnTabRegister() {
