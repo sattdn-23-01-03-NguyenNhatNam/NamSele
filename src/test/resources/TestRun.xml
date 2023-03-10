@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Practice">
-    <test name="TestLogin">
+    <test name="LoginTest">
         <classes>
             <class name="railway.LoginTest">
             </class>
         </classes>
     </test>
 
-    <test name="TestRegister">
+    <test name="RegisterTest">
         <classes>
             <class name="railway.RegisterTest">
             </class>
         </classes>
     </test>
 
-    <test name="TestChangePassword">
+    <test name="ChangePasswordTest">
         <classes>
             <class name="railway.ChangePasswordTest">
             </class>

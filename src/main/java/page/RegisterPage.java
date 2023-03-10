@@ -97,11 +97,7 @@ public class RegisterPage {
     }
 
     public void register(String email, String password, String confirmPassword, String passportNumber) {
-        try {
-            Utilities.srollPage();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        Utilities.scrollToElement(getTxtEmail());
         this.enterEmail(email);
         this.enterPassword(password);
         this.enterConfirmPassword(confirmPassword);

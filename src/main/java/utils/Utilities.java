@@ -2,14 +2,14 @@ package utils;
 
 import common.Constant;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 import java.util.Random;
 
 public class Utilities {
-    public static void srollPage() throws InterruptedException {
+    public static void scrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
-        Thread.sleep(2000);
-        js.executeScript("window.scrollBy(0,500)");
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
     public static int randomNumber(int min, int max) {

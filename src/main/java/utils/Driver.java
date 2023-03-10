@@ -7,11 +7,10 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Driver {
     public static WebDriver setUp() {
-        WebDriver driver;
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
-        driver = new ChromeDriver(options);
+        WebDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         return driver;
     }
