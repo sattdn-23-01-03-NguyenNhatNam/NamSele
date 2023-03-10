@@ -1,26 +1,30 @@
 package page;
 
 import common.Constant;
+import common.Enums;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class ChangePasswordPage {
-    private By txtCurentPassword = By.xpath("//input[@id='currentPassword']");
-    private By txtNewPassword = By.xpath("//input[@id='newPassword']");
-    private By txtConfirmPassword = By.xpath("//input[@id='confirmPassword']");
     private By btnChangePassword = By.xpath("//form[@id='ChangePW']//input[@type='submit']");
     private By msgSuccess = By.xpath("//p[@class='message success']");
+    private By lblTitleChangePassword = By.xpath("//div[@id='content']/h1");
+    private String txtDynamicLocator = "//input[@id='%s']";
+
+    private By getTxtDynamicLocator(String Name) {
+        return By.xpath(String.format(txtDynamicLocator, Name));
+    }
 
     public WebElement getTxtCurrentPassword() {
-        return Constant.WEBDRIVER.findElement(txtCurentPassword);
+        return Constant.WEBDRIVER.findElement(getTxtDynamicLocator(Enums.CurrentPassword.getName()));
     }
 
     public WebElement getTxtNewPassword() {
-        return Constant.WEBDRIVER.findElement(txtNewPassword);
+        return Constant.WEBDRIVER.findElement(getTxtDynamicLocator(Enums.NewPassword.getName()));
     }
 
     public WebElement getTxtConfirmPassword() {
-        return Constant.WEBDRIVER.findElement(txtConfirmPassword);
+        return Constant.WEBDRIVER.findElement(getTxtDynamicLocator(Enums.ConfirmPassword.getName()));
     }
 
     public WebElement getBtnChangePassword() {
@@ -29,6 +33,10 @@ public class ChangePasswordPage {
 
     public WebElement getMsgSuccess() {
         return Constant.WEBDRIVER.findElement(msgSuccess);
+    }
+
+    public WebElement getLblTitleChangePassword() {
+        return Constant.WEBDRIVER.findElement(lblTitleChangePassword);
     }
 
     public void enterCurrentPassword(String currentPassword) {
@@ -47,7 +55,7 @@ public class ChangePasswordPage {
         getBtnChangePassword().click();
     }
 
-    public String showSuccessMsg() {
+    public String getTextMsgSuccess() {
         return getMsgSuccess().getText();
     }
 
@@ -57,5 +65,4 @@ public class ChangePasswordPage {
         enterConfirmPassword(confirmPassword);
         clickChangePassword();
     }
-
 }

@@ -1,46 +1,40 @@
 package page;
 
 import common.Constant;
+import common.Enums;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import utils.Driver;
 
 public class GeneralPage {
-    private String Login = "Login";
-    private String Register = "Register";
-    private String BookTicket = "BookTicketPage";
-    private String Logout = "Logout";
-    private String MyTicket = "ManageTicket";
-    private String ChangePassword = "ChangePassword";
-    private String tabDynamicLocator = "//a[contains(@href, '<tabname>')]";
-
-    //I haven't applied enums
+    private String tabDynamicLocator = "//a[contains(@href, '%s')]";
 
     private By getTabGeneral(String tabName) {
-        return By.xpath(tabDynamicLocator.replace("<tabname>", tabName));
+        return By.xpath(String.format(tabDynamicLocator, tabName));
     }
 
     public WebElement getTabLogin() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(Login));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.Login.getName()));
     }
 
     public WebElement getTabRegister() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(Register));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.Register.getName()));
     }
 
     public WebElement getTabBookTicket() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(BookTicket));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.BookTicketPage.getName()));
     }
 
     public WebElement getTabLogout() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(Logout));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.Logout.getName()));
     }
 
     public WebElement getTabMyTicket() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(MyTicket));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.ManageTicket.getName()));
     }
 
     public WebElement getChangePassword() {
-        return Constant.WEBDRIVER.findElement(getTabGeneral(ChangePassword));
+        return Constant.WEBDRIVER.findElement(getTabGeneral(Enums.ChangePassword.getName()));
     }
 
     public void clickOnTabRegister() {
@@ -62,9 +56,4 @@ public class GeneralPage {
     public void clickOnTabChangPassword() {
         getChangePassword().click();
     }
-
-    public void clickOnTabMyTicket() {
-        getTabMyTicket().click();
-    }
 }
-

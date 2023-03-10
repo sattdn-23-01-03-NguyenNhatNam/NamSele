@@ -2,44 +2,45 @@ package railway;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 import page.HomePage;
 import page.LoginPage;
 import page.RegisterPage;
 
 public class RegisterTest extends BaseTest {
-    public RegisterPage registerPage = new RegisterPage();
-    public LoginPage loginPage = new LoginPage();
-    public HomePage homePage = new HomePage();
+    private RegisterPage registerPage = new RegisterPage();
+    private LoginPage loginPage = new LoginPage();
+    private HomePage homePage = new HomePage();
+    private SoftAssert softAssert = new SoftAssert();
 
-    @Test
+    @Test(description = "User can login Railway with registered username and password")
     public void TC00() {
-        System.out.println("User can login Railway with registered username and password");
         String email = "nhatnam7@gmail.com";
         String password = "12345678";
         String confirmPassword = password;
         String passportNumber = "123123123";
         homePage.open();
         homePage.clickOnTabRegister();
-
         registerPage.register(email, password, confirmPassword, passportNumber);
-        String actualMsg = registerPage.showSuccessMsg();
+        String actualMsg = registerPage.getTextMsgSuccess();
+
         Assert.assertEquals(actualMsg, "You're here", "Register failure, Account already exists");
 
         homePage.clickOnTabLogin();
         loginPage.login(email, password);
-
     }
 
-    @Test
+    @Test(description = "User can create new account")
     public void TC07() {
         homePage.open();
         homePage.clickOnTabRegister();
         registerPage.register("nam3@gmail.com", "123456789", "123456789", "123123123");
-        String actualMsg = registerPage.showSuccessMsg();
+        String actualMsg = registerPage.getTextMsgSuccess();
+
         Assert.assertEquals(actualMsg, "Thank you for registering your account", "Register failure, Account already exists");
     }
 
-    @Test
+    @Test(description = "User can't create account with \"Confirm password\" is not the same with \"Password\"")
     public void TC10() {
         homePage.open();
         homePage.clickOnTabRegister();
@@ -47,20 +48,21 @@ public class RegisterTest extends BaseTest {
         String confirmPassword = "namratdeptrai";
         registerPage.register("nam6@gmail.com", password, confirmPassword, "123123123");
 
-        Assert.assertEquals(registerPage.showErrorRegisterMsg(), "There're errors in the form. Please correct the errors and try again.", "The error message doesn't display properly");
-
-        Assert.assertEquals(registerPage.showErrorConfirmPwMsg(), "The two passwords do not match");
+        softAssert.assertEquals(registerPage.getTextMsgErrorRegister(), "There're errors in the form. Please correct the errors and try again.", "The error message doesn't display properly");
+        softAssert.assertEquals(registerPage.getTextMsgErrorConfirmPassword(), "The two passwords do not match","The error message doesn't display properly");
+        softAssert.assertAll();
     }
 
-    @Test
+    @Test(description = "User can't create account while password and PID fields are empty")
     public void TC11() {
         homePage.open();
         homePage.clickOnTabRegister();
         registerPage.register("nam7@gmail.com", "", "123456789", "");
-        Assert.assertEquals(registerPage.showErrorRegisterMsg(), "There're errors in the form. Please correct the errors and try again.", "The error message doesn't display properly");
-        Assert.assertEquals(registerPage.showErrorInValidPwMsg(), "Invalid password length.");
-        Assert.assertEquals(registerPage.showErrorConfirmPwMsg(), "The two passwords do not match");
-        Assert.assertEquals(registerPage.showErrorInValidPIDMsg(), "Invalid ID length.");
+
+        softAssert.assertEquals(registerPage.getTextMsgErrorRegister(), "There're errors in the form. Please correct the errors and try again.", "The error message doesn't display properly");
+        softAssert.assertEquals(registerPage.getTextMsgErrorInValidPassword(), "Invalid password length.","The error message doesn't display properly");
+        softAssert.assertEquals(registerPage.getTextMsgErrorConfirmPassword(), "The two passwords do not match","The error message doesn't display properly");
+        softAssert.assertEquals(registerPage.getTextMsgErrorInValidPID(), "Invalid ID length.","The error message doesn't display properly");
+        softAssert.assertAll();
     }
 }
-

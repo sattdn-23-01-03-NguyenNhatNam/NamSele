@@ -2,13 +2,10 @@ package railway;
 
 import common.Constant;
 import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
 import utils.Driver;
 
 public class BaseTest {
-
 
     @BeforeClass
     void beforeClass() {
@@ -19,5 +16,4 @@ public class BaseTest {
     public void afterClass() {
         Constant.WEBDRIVER.close();
     }
-
 }
