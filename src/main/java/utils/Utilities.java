@@ -12,9 +12,9 @@ public class Utilities {
         js.executeScript("window.scrollBy(0,500)");
     }
 
-    public static int randomNumber(int min,int max){
+    public static int randomNumber(int min, int max) {
         Random random = new Random();
-        int value = random.nextInt(max+min)+min;
+        int value = random.nextInt(max - min) + min;
         return value;
     }
 }
