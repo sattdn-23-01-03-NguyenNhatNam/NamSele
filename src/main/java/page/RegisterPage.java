@@ -5,7 +5,6 @@ import org.openqa.selenium.*;
 import utils.Utilities;
 
 public class RegisterPage {
-
     public Utilities utilities = new Utilities();
     private By tabRegister = By.xpath("//a[contains(@href,'Register')]");
     private By txtEmail = By.xpath("//input[@id='email']");
@@ -15,89 +14,88 @@ public class RegisterPage {
     private By btnRegister = By.xpath("//input[@type='submit' and @value='Register']");
     private By msgSuccess = By.xpath("//div[@id='content']/p");
     private By msgErrorRegister = By.xpath("//p[@class='message error']");
-    private By msgErrorConfirmPw = By.xpath("//label[@class='validation-error' and @for='confirmPassword']");
-    private By msgErrorInvalidPw = By.xpath("//label[@class='validation-error' and @for='password']");
+    private By msgErrorConfirmPassword = By.xpath("//label[@class='validation-error' and @for='confirmPassword']");
+    private By msgErrorInvalidPassword = By.xpath("//label[@class='validation-error' and @for='password']");
     private By msgErrorInvalidPID = By.xpath("Invalid ID length.");
 
-    public WebElement getEmailField() {
+    public WebElement getTxtEmail() {
         return Constant.WEBDRIVER.findElement(txtEmail);
     }
 
-    public WebElement getPasswordField() {
+    public WebElement getTxtPassword() {
         return Constant.WEBDRIVER.findElement(txtPassword);
     }
 
-    public WebElement getConfirmPWField() {
+    public WebElement getTxtConfirmPassword() {
         return Constant.WEBDRIVER.findElement(txtConfirmPassword);
     }
 
-    public WebElement getPassportNumberField() {
+    public WebElement getTxtPassport() {
         return Constant.WEBDRIVER.findElement(txtPassport);
     }
 
-    public WebElement getSuccessMsg() {
+    public WebElement getMsgSuccess() {
         return Constant.WEBDRIVER.findElement(msgSuccess);
     }
 
-    public WebElement getRegisterBtn() {
+    public WebElement getBtnRegister() {
         return Constant.WEBDRIVER.findElement(btnRegister);
     }
 
-    public WebElement getErrorRegisterMsg() {
+    public WebElement getMsgErrorRegister() {
         return Constant.WEBDRIVER.findElement(msgErrorRegister);
     }
 
-    public WebElement getErrorConfirmPwMsg() {
-        return Constant.WEBDRIVER.findElement(msgErrorConfirmPw);
+    public WebElement getMsgErrorConfirmPassword() {
+        return Constant.WEBDRIVER.findElement(msgErrorConfirmPassword);
     }
 
-    public WebElement getErrorInvalidPwMsg() {
-        return Constant.WEBDRIVER.findElement(msgErrorInvalidPw);
+    public WebElement getMsgErrorInvalidPassword() {
+        return Constant.WEBDRIVER.findElement(msgErrorInvalidPassword);
     }
 
-    public WebElement getErrorInvalidPIDMsg() {
+    public WebElement getMsgErrorInvalidPID() {
         return Constant.WEBDRIVER.findElement(msgErrorInvalidPID);
     }
 
-
     public void enterEmail(String email) {
-        this.getEmailField().sendKeys(email);
+        this.getTxtEmail().sendKeys(email);
     }
 
     public void enterPassword(String password) {
-        this.getPasswordField().sendKeys(password);
+        this.getTxtPassword().sendKeys(password);
     }
 
-    public void enterConfirmPassword(String confirmpassword) {
-        this.getConfirmPWField().sendKeys(confirmpassword);
+    public void enterConfirmPassword(String confirmPassword) {
+        this.getTxtConfirmPassword().sendKeys(confirmPassword);
     }
 
-    public void enterPassportnumber(String passportnumber) {
-        this.getPassportNumberField().sendKeys(passportnumber);
+    public void enterPassportNumber(String passportNumber) {
+        this.getTxtPassport().sendKeys(passportNumber);
     }
 
     public String showSuccessMsg() {
-        return getSuccessMsg().getText();
+        return getMsgSuccess().getText();
     }
 
     public String showErrorRegisterMsg() {
-        return getErrorRegisterMsg().getText();
+        return getMsgErrorRegister().getText();
     }
 
     public String showErrorConfirmPwMsg() {
-        return getErrorConfirmPwMsg().getText();
+        return getMsgErrorConfirmPassword().getText();
     }
 
     public String showErrorInValidPwMsg() {
-        return getErrorInvalidPwMsg().getText();
+        return getMsgErrorInvalidPassword().getText();
     }
 
     public String showErrorInValidPIDMsg() {
-        return getErrorInvalidPIDMsg().getText();
+        return getMsgErrorInvalidPID().getText();
     }
 
     public void clickRegister() {
-        getRegisterBtn().click();
+        getBtnRegister().click();
     }
 
     public void register(String email, String password, String confirmPassword, String passportNumber) {
@@ -109,9 +107,8 @@ public class RegisterPage {
         this.enterEmail(email);
         this.enterPassword(password);
         this.enterConfirmPassword(confirmPassword);
-        this.enterPassportnumber(passportNumber);
+        this.enterPassportNumber(passportNumber);
         clickRegister();
-
     }
 }
 

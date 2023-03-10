@@ -19,9 +19,10 @@ public class LoginTest extends BaseTest {
         homePage.clickOnTabLogin();
         logInPage.login(Constant.Username, Constant.Password);
 
-        String actual = logInPage.showWelcomeMessage();
+        String actual = logInPage.showMessageWelcome();
         String expected = "Welcome " + Constant.Username;
         Assert.assertEquals(actual, expected);
+
         homePage.clickOnTabLogout();
     }
 
@@ -32,8 +33,8 @@ public class LoginTest extends BaseTest {
         homePage.clickOnTabLogin();
         logInPage.login("", Constant.Password);
 
-        Assert.assertEquals(logInPage.showErrorLoginMessage(), "There was a problem with your login and/or errors exist in your form.", "The error doesn't display properly");
-        Assert.assertEquals(logInPage.showErrorValidMessage(), "You must specify a username.", "The error doesn't display properly");
+        Assert.assertEquals(logInPage.getTextMessageErrorLogin(), "There was a problem with your login and/or errors exist in your form.", "The error doesn't display properly");
+        Assert.assertEquals(logInPage.getTextMessageErrorValidField(), "You must specify a username.", "The error doesn't display properly");
     }
 
     @Test
@@ -43,7 +44,7 @@ public class LoginTest extends BaseTest {
         homePage.clickOnTabLogin();
         logInPage.login(Constant.Username, "1231223123");
 
-        Assert.assertEquals(logInPage.showErrorLoginMessage(), "There was a problem with your login and/or errors exist in your form.", "The error doesn't display properly");
+        Assert.assertEquals(logInPage.getTextMessageErrorLogin(), "There was a problem with your login and/or errors exist in your form.", "The error doesn't display properly");
 
     }
 
@@ -65,9 +66,9 @@ public class LoginTest extends BaseTest {
         homePage.clickOnTabLogin();
         String password = "123123123";
 
-        logInPage.repeatLogin(4, Constant.Username, password);
+        logInPage.loginWithInvalidAccountSeveralTimes(4, Constant.Username, password);
 
-        String actual = logInPage.showErrorLoginMessage();
+        String actual = logInPage.getTextMessageErrorLogin();
         String expected = "You have used 4 out of 5 login attempts. After all 5 have been used, you will be unable to login for 15 minutes.";
         Assert.assertEquals(actual, expected);
 
@@ -91,7 +92,7 @@ public class LoginTest extends BaseTest {
         homePage.open();
         homePage.clickOnTabLogin();
         logInPage.login("namdayne@gmail.com", "123123123");
-        Assert.assertEquals(logInPage.showErrorLoginMessage(), "Invalid username or password. Please try again.");
+        Assert.assertEquals(logInPage.getTextMessageErrorLogin(), "Invalid username or password. Please try again.");
     }
 
 

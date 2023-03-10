@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Driver {
-
     public static WebDriver setUp() {
         WebDriver driver;
         WebDriverManager.chromedriver().setup();
@@ -13,6 +12,5 @@ public class Driver {
         driver.manage().window().maximize();
         return driver;
     }
-
 }
 

@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage {
-
     private By txtEmail = By.xpath("//input[@id='username']");
     private By txtPassword = By.xpath("//input[@id='password']");
     private By btnLogin = By.xpath("//input[@type='submit']");
@@ -13,56 +12,56 @@ public class LoginPage {
     private By msgErrorLoginForm = By.xpath("//p[@class='message error LoginForm']");
     private By msgErrorValidField = By.xpath("//label[@class='validation-error' and @for ='username']");
 
-    public WebElement getEmailField() {
+    public WebElement getTxtEmail() {
         return Constant.WEBDRIVER.findElement(txtEmail);
     }
 
-    public void enterEmail(String email) {
-        this.getEmailField().sendKeys(email);
-    }
-
-    public WebElement getPasswordField() {
+    public WebElement getTxtPassword() {
         return Constant.WEBDRIVER.findElement(txtPassword);
-    }
-
-    public void enterPassword(String password) {
-        this.getPasswordField().sendKeys(password);
     }
 
     public WebElement getBtnLogin() {
         return Constant.WEBDRIVER.findElement(btnLogin);
     }
 
+    public WebElement getMessageWelcome() {
+        return Constant.WEBDRIVER.findElement(msgWelcome);
+    }
+
+    public WebElement getMsgErrorLoginForm() {
+        return Constant.WEBDRIVER.findElement(msgErrorLoginForm);
+    }
+
+    public WebElement getMessageErrorValidField() {
+        return Constant.WEBDRIVER.findElement(msgErrorValidField);
+    }
+
+    public void enterEmail(String email) {
+        this.getTxtEmail().sendKeys(email);
+    }
+
+    public void enterPassword(String password) {
+        this.getTxtPassword().sendKeys(password);
+    }
+
     public void clickLogin() {
         getBtnLogin().click();
     }
 
-    public WebElement getWelcomeMessage() {
-        return Constant.WEBDRIVER.findElement(msgWelcome);
+    public String showMessageWelcome() {
+        return getMessageWelcome().getText();
     }
 
-    public String showWelcomeMessage() {
-        return getWelcomeMessage().getText();
+    public String getTextMessageErrorLogin() {
+        return getMsgErrorLoginForm().getText();
     }
 
-    public WebElement getErrorLoginMessage() {
-        return Constant.WEBDRIVER.findElement(msgErrorLoginForm);
+    public String getTextMessageErrorValidField() {
+        return getMessageErrorValidField().getText();
     }
 
-    public String showErrorLoginMessage() {
-        return getErrorLoginMessage().getText();
-    }
-
-    public WebElement getErrorSpecifyMessage() {
-        return Constant.WEBDRIVER.findElement(msgErrorValidField);
-    }
-
-    public String showErrorValidMessage() {
-        return getErrorSpecifyMessage().getText();
-    }
-
-    public void repeatLogin(int n, String email, String password) {
-        for (int i = 0; i < n; i++) {
+    public void loginWithInvalidAccountSeveralTimes(int times, String email, String password) {
+        for (int i = 0; i < times; i++) {
             this.login(email, password);
         }
     }
@@ -72,7 +71,6 @@ public class LoginPage {
         this.enterPassword(password);
         clickLogin();
     }
-
 }
 
 

@@ -11,15 +11,15 @@ public class ChangePasswordPage {
     private By btnChangePassword = By.xpath("//form[@id='ChangePW']//input[@type='submit']");
     private By msgSuccess = By.xpath("//p[@class='message success']");
 
-    public WebElement getCurrentPasswordField() {
+    public WebElement getTxtCurrentPassword() {
         return Constant.WEBDRIVER.findElement(txtCurentPassword);
     }
 
-    public WebElement getNewPasswordField() {
+    public WebElement getTxtNewPassword() {
         return Constant.WEBDRIVER.findElement(txtNewPassword);
     }
 
-    public WebElement getConfirmPasswordField() {
+    public WebElement getTxtConfirmPassword() {
         return Constant.WEBDRIVER.findElement(txtConfirmPassword);
     }
 
@@ -27,20 +27,20 @@ public class ChangePasswordPage {
         return Constant.WEBDRIVER.findElement(btnChangePassword);
     }
 
-    public WebElement getSuccessMsg() {
+    public WebElement getMsgSuccess() {
         return Constant.WEBDRIVER.findElement(msgSuccess);
     }
 
     public void enterCurrentPassword(String currentPassword) {
-        this.getCurrentPasswordField().sendKeys(currentPassword);
+        this.getTxtCurrentPassword().sendKeys(currentPassword);
     }
 
     public void enterNewPassword(String newPassword) {
-        this.getNewPasswordField().sendKeys(newPassword);
+        this.getTxtNewPassword().sendKeys(newPassword);
     }
 
     public void enterConfirmPassword(String confirmPassword) {
-        this.getConfirmPasswordField().sendKeys(confirmPassword);
+        this.getTxtConfirmPassword().sendKeys(confirmPassword);
     }
 
     public void clickChangePassword() {
@@ -48,7 +48,7 @@ public class ChangePasswordPage {
     }
 
     public String showSuccessMsg() {
-        return getSuccessMsg().getText();
+        return getMsgSuccess().getText();
     }
 
     public void changePassword(String currentPassword, String newPassword, String confirmPassword) {

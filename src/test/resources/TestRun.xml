@@ -1,19 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Practice">
-    <test name="Test1">
+    <test name="TestLogin">
         <classes>
-            <class name="railway.ChangePwTest">
+            <class name="railway.LoginTest">
                 <methods>
-                    <include name="TC09"></include>
+                    <include name="TC01"></include>
                 </methods>
             </class>
-           
         </classes>
-    </test><!-- Test -->
-<!--    <test name="Test2">-->
-<!--        <classes>-->
-<!--            <class name="railway.LoginTest"></class>-->
-<!--        </classes>-->
-<!--    </test>-->
-</suite><!-- Test -->
+    </test>
+
+    <test name="TestRegister">
+        <classes>
+            <class name="railway.RegisterTest"></class>
+        </classes>
+    </test>
+
+    <test name="TestChangePassword">
+        <classes>
+            <class name="railway.ChangePasswordTest"></class>
+        </classes>
+    </test>
+</suite>
+

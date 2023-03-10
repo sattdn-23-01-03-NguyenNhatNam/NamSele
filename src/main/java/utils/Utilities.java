@@ -3,6 +3,8 @@ package utils;
 import common.Constant;
 import org.openqa.selenium.JavascriptExecutor;
 
+import java.util.Random;
+
 public class Utilities {
     public void srollPage() throws InterruptedException {
         JavascriptExecutor js = (JavascriptExecutor) Constant.WEBDRIVER;
@@ -10,3 +12,4 @@ public class Utilities {
         js.executeScript("window.scrollBy(0,500)");
     }
 }
+

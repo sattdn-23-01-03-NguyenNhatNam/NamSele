@@ -12,9 +12,9 @@ public class RegisterTest extends BaseTest {
     public HomePage homePage = new HomePage();
 
     @Test
-    public void TC00() throws InterruptedException {
+    public void TC00() {
         System.out.println("User can login Railway with registered username and password");
-        String email = "nhatnam6@gmail.com";
+        String email = "nhatnam7@gmail.com";
         String password = "12345678";
         String confirmPassword = password;
         String passportNumber = "123123123";
@@ -31,7 +31,7 @@ public class RegisterTest extends BaseTest {
     }
 
     @Test
-    public void TC07() throws InterruptedException {
+    public void TC07() {
         homePage.open();
         homePage.clickOnTabRegister();
         registerPage.register("nam3@gmail.com", "123456789", "123456789", "123123123");
@@ -39,9 +39,8 @@ public class RegisterTest extends BaseTest {
         Assert.assertEquals(actualMsg, "Thank you for registering your account", "Register failure, Account already exists");
     }
 
-
     @Test
-    public void TC10() throws InterruptedException {
+    public void TC10() {
         homePage.open();
         homePage.clickOnTabRegister();
         String password = "namquadeptrai";
@@ -54,7 +53,7 @@ public class RegisterTest extends BaseTest {
     }
 
     @Test
-    public void TC11() throws InterruptedException {
+    public void TC11() {
         homePage.open();
         homePage.clickOnTabRegister();
         registerPage.register("nam7@gmail.com", "", "123456789", "");
@@ -62,8 +61,6 @@ public class RegisterTest extends BaseTest {
         Assert.assertEquals(registerPage.showErrorInValidPwMsg(), "Invalid password length.");
         Assert.assertEquals(registerPage.showErrorConfirmPwMsg(), "The two passwords do not match");
         Assert.assertEquals(registerPage.showErrorInValidPIDMsg(), "Invalid ID length.");
-
     }
-
-
 }
+
